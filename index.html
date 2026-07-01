@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f1eee6" />
+  <title>Marginalia — Your Library</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Libre+Caslon+Display&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="library.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html"><span>M</span> marginalia</a>
+    <nav aria-label="Main navigation">
+      <a class="active" href="index.html">Library</a>
+      <a href="focus.html">Focus timer</a>
+    </nav>
+    <button class="search-toggle" id="searchToggle" aria-label="Search library">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="kicker">YOUR PRIVATE COLLECTION</p>
+        <h1>Eight worlds,<br><em>waiting.</em></h1>
+        <p class="intro">The great books don’t give up their secrets at once. Return often, read slowly, and leave a little changed.</p>
+      </div>
+      <div class="hero-meta"><strong>8</strong><span>timeless<br>classics</span></div>
+    </section>
+
+    <section class="library" aria-labelledby="libraryTitle">
+      <div class="library-head">
+        <div><p class="kicker">THE COLLECTION</p><h2 id="libraryTitle">Your books</h2></div>
+        <div class="controls">
+          <div class="search-box" id="searchBox"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg><input id="searchInput" type="search" placeholder="Search title or author" aria-label="Search title or author"></div>
+          <select id="sortSelect" aria-label="Sort books"><option value="default">Curated order</option><option value="title">Title A–Z</option><option value="author">Author A–Z</option><option value="pages">Shortest first</option></select>
+        </div>
+      </div>
+      <div class="book-grid" id="bookGrid"></div>
+      <p class="empty-state" id="emptyState" hidden>No books found. Try a different search.</p>
+    </section>
+
+    <section class="reading-note">
+      <p class="kicker">A NOTE FOR THE READER</p>
+      <blockquote>“A reader lives a thousand lives before he dies.”</blockquote>
+      <a href="focus.html">Start a reading session <span>→</span></a>
+    </section>
+  </main>
+
+  <footer><span>marginalia</span><p>A quiet corner for loud ideas.</p><p>8 books · 3,576 pages</p></footer>
+  <script src="library.js"></script>
+</body>
+</html>

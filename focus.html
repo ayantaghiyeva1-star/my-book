@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f5f1e8" />
+  <title>Ember — Focus Timer & Streaks</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="focus.css" />
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Ember home"><span class="brand-mark">e</span><span>ember</span></a>
+      <p class="today" id="todayLabel"></p>
+      <button class="icon-button" id="soundButton" aria-label="Toggle completion sound" aria-pressed="true">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5Zm4.5 4.5a4 4 0 0 1 0 5m2.5-8a8 8 0 0 1 0 11"/></svg>
+      </button>
+    </header>
+
+    <section class="hero">
+      <div class="eyebrow"><span></span> YOUR DAILY RITUAL</div>
+      <h1>Make time<br><em>count.</em></h1>
+      <p>Settle in, focus deeply, and keep the flame alive.</p>
+    </section>
+
+    <section class="dashboard">
+      <article class="timer-card">
+        <div class="timer-topline"><span>FOCUS SESSION</span><button id="resetButton" class="text-button">Reset</button></div>
+        <div class="timer-wrap">
+          <svg class="progress-ring" viewBox="0 0 280 280" aria-hidden="true">
+            <circle class="ring-track" cx="140" cy="140" r="125" />
+            <circle class="ring-progress" id="ringProgress" cx="140" cy="140" r="125" />
+          </svg>
+          <div class="timer-content">
+            <div class="time" id="timeDisplay">25:00</div>
+            <div class="status" id="statusLabel">READY WHEN YOU ARE</div>
+          </div>
+        </div>
+        <div class="presets" aria-label="Timer duration">
+          <button data-minutes="15">15</button>
+          <button data-minutes="25" class="active">25</button>
+          <button data-minutes="45">45</button>
+          <button data-minutes="60">60</button>
+          <button id="customButton">Custom</button>
+        </div>
+        <button class="start-button" id="startButton"><span id="playIcon">▶</span><span id="startLabel">Begin focus</span></button>
+        <p class="hint">Finishing a session keeps your streak alive</p>
+      </article>
+
+      <aside class="streak-card">
+        <div class="streak-header">
+          <div><div class="section-label">CURRENT STREAK</div><div class="streak-number"><strong id="streakCount">0</strong><span>days<br>strong</span></div></div>
+          <div class="flame" aria-hidden="true">♨</div>
+        </div>
+        <p class="encouragement" id="encouragement">Complete today’s session to light the flame.</p>
+        <div class="week" id="weekView"></div>
+        <div class="divider"></div>
+        <div class="stats">
+          <div><span id="totalSessions">0</span><small>SESSIONS</small></div>
+          <div><span id="focusMinutes">0</span><small>FOCUS MIN</small></div>
+          <div><span id="bestStreak">0</span><small>BEST STREAK</small></div>
+        </div>
+        <div class="quote"><span>“</span><p>Small disciplines repeated with consistency every day lead to great achievements.</p></div>
+      </aside>
+    </section>
+  </main>
+
+  <dialog id="customDialog">
+    <form method="dialog">
+      <button class="dialog-close" value="cancel" aria-label="Close">×</button>
+      <div class="section-label">CUSTOM SESSION</div>
+      <h2>How long do you need?</h2>
+      <label>Minutes<input id="customMinutes" type="number" min="1" max="180" value="30" /></label>
+      <button class="start-button" id="setCustomButton" value="default">Set timer</button>
+    </form>
+  </dialog>
+  <div class="toast" id="toast" role="status">Session complete — streak updated!</div>
+  <script src="app.js"></script>
+</body>
+</html>

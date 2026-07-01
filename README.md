@@ -1,4 +1,4 @@
-# Marginalia
+# Mybook
 
 A personal library for eight classic books, with linked local PDFs and a companion focus timer with daily streak tracking.
 
